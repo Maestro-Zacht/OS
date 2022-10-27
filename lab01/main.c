@@ -12,9 +12,8 @@ void parte1(char *f_name1, char *f_name2)
         printf("Non valido\n");
     }
 
-    while (!feof(f_in))
+    while (fgets(c, DIM, f_in) != NULL)
     {
-        fgets(c, DIM, f_in);
         fputs(c, f_out);
         printf("%s", c);
     }
