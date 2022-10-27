@@ -1,4 +1,8 @@
 #include <stdio.h>
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <fcntl.h>
+
 #define DIM 256
 
 void parte1(char *f_name1, char *f_name2)
@@ -24,6 +28,9 @@ void parte1(char *f_name1, char *f_name2)
 
 int main(int argc, char *argv[])
 {
-    parte1(argv[1], argv[2]);
+    if (argc >= 3)
+    {
+        parte1(argv[1], argv[2]);
+    }
     return 0;
 }
