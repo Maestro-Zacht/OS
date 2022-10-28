@@ -1,9 +1,13 @@
-.PHONY: compila
+.PHONY: install clean distclean
+COMPILER=gcc
 
-compila:
-	gcc -o main main.c
+main: main.o
+	$(COMPILER) -o $@ $^
 
-install: compila
+main.o: main.c
+	$(COMPILER) -c $<
+
+install: main
 	mkdir ../bin
 	mv -t ../bin ./main
 
@@ -12,3 +16,6 @@ clean:
 
 distclean: clean
 	rm -rf ../bin
+
+run: main
+	./$< lab01e01in.txt test.txt
