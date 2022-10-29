@@ -12,13 +12,15 @@ void P(int i)
 
 int main()
 {
+    pid_t p;
+
     P(1);
     if (fork())
     {
         // parent
         P(2);
 
-        if (fork())
+        if (p = fork())
         {
             // parent
             P(4);
@@ -29,7 +31,7 @@ int main()
             P(5);
             exit(1);
         }
-        wait(NULL);
+        waitpid(p, NULL, 0);
         P(7);
     }
     else
