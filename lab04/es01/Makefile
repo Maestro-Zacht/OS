@@ -1,4 +1,4 @@
-.PHONY: run redirect stringhe
+.PHONY: run redirect stringhe processi
 
 run: main
 	./main
@@ -14,3 +14,6 @@ redirect: main
 
 stringhe:
 	cat ./es01b/lab01.txt ./es01b/lab02.txt ./es01b/lab03.txt | wc -w
+
+processi:
+	ps -U root | wc -l
