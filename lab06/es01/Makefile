@@ -4,7 +4,7 @@ run: main
 	./main 3
 
 main: main.o
-	gcc -g -Wall -o $@ $^
+	gcc -Wall -o $@ $^
 
 main.o: main.c
-	gcc -c $<
+	gcc -g -c $<

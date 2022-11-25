@@ -26,7 +26,7 @@ void genera_interi(int n, int fd_write)
             close(fd[1]);
             buff = (int *)malloc(n * sizeof(int));
 
-            while (read(fd[0], buff + sizeof(int), (n - 1) * sizeof(int)) > 0)
+            while (read(fd[0], buff + 1, (n - 1) * sizeof(int)) > 0)
             {
                 buff[0] = 0;
                 write(fd_write, buff, n * sizeof(int));
