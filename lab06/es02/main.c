@@ -86,8 +86,7 @@ int main(int argc, char *argv[])
             strcpy(par[i].name_in, argv[2]);
             strcpy(par[i].name_out, argv[3]);
 
-            pthread_create(&tids[i], NULL, ordina, (&par[i]));
-            // fprintf(stdout, "Created thread %d")
+            pthread_create(&tids[i], NULL, ordina, (void *)(&par[i]));
         }
 
         for (i = 0; i < n; i++)
