@@ -14,10 +14,6 @@ list=$(ls "$directory")
 cd "$directory"
 
 for elem in $list; do
-    # if [ -f "$elem" ]; then
-        
-    # fi
-
-    newname=$(echo -n "$elem" | tr qwertyuiopasdfghjklzxcvbnm QWERTYUIOPASDFGHJKLZXCVBNM)
+    newname=$(echo -n "$elem" | tr a-z A-Z)
     mv "$elem" "$newname"
 done
