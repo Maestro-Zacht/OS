@@ -1,0 +1,43 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Lab06 Es01",
+            "args": [
+                "3"
+            ],
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${fileDirname}/${fileBasenameNoExtension}",
+            "cwd": "."
+        },
+        {
+            "name": "Lab06 Es02",
+            "args": [
+                "3",
+                "inp",
+                "out"
+            ],
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${fileDirname}/${fileBasenameNoExtension}",
+            "cwd": "."
+        },
+        {
+            "name": "Lab06 Es03",
+            "args": [
+                "3",
+                "inp",
+                "out",
+                "5"
+            ],
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${fileDirname}/${fileBasenameNoExtension}",
+            "cwd": "."
+        }
+    ]
+}
