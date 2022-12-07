@@ -6,10 +6,9 @@
 #include <unistd.h>
 
 #define MAXSLEEPTIME 10
-#define NSEM 5
 #define NTHR 9
 
-sem_t Sem[NSEM + 1];
+sem_t Sem[NTHR];
 
 void T(char c)
 {
@@ -22,11 +21,11 @@ void *A(void *p)
 {
     while (1)
     {
-        sem_wait(&Sem[5]);
+        sem_wait(&Sem[0]);
         T('A');
-        sem_post(&Sem[0]);
-        sem_post(&Sem[0]);
-        sem_post(&Sem[0]);
+        sem_post(&Sem[1]);
+        sem_post(&Sem[2]);
+        sem_post(&Sem[3]);
     }
     return NULL;
 }
@@ -35,9 +34,9 @@ void *B(void *p)
 {
     while (1)
     {
-        sem_wait(&Sem[0]);
+        sem_wait(&Sem[1]);
         T('B');
-        sem_post(&Sem[1]);
+        sem_post(&Sem[4]);
     }
     return NULL;
 }
@@ -46,10 +45,10 @@ void *C(void *p)
 {
     while (1)
     {
-        sem_wait(&Sem[0]);
+        sem_wait(&Sem[2]);
         T('C');
-        sem_post(&Sem[2]);
-        sem_post(&Sem[2]);
+        sem_post(&Sem[5]);
+        sem_post(&Sem[6]);
     }
     return NULL;
 }
@@ -57,9 +56,9 @@ void *D(void *p)
 {
     while (1)
     {
-        sem_wait(&Sem[0]);
+        sem_wait(&Sem[3]);
         T('D');
-        sem_post(&Sem[3]);
+        sem_post(&Sem[7]);
     }
     return NULL;
 }
@@ -68,9 +67,9 @@ void *E(void *p)
 {
     while (1)
     {
-        sem_wait(&Sem[2]);
+        sem_wait(&Sem[5]);
         T('E');
-        sem_post(&Sem[4]);
+        sem_post(&Sem[8]);
     }
     return NULL;
 }
@@ -79,9 +78,9 @@ void *F(void *p)
 {
     while (1)
     {
-        sem_wait(&Sem[2]);
+        sem_wait(&Sem[6]);
         T('F');
-        sem_post(&Sem[4]);
+        sem_post(&Sem[8]);
     }
     return NULL;
 }
@@ -90,10 +89,10 @@ void *G(void *p)
 {
     while (1)
     {
-        sem_wait(&Sem[4]);
-        sem_wait(&Sem[4]);
+        sem_wait(&Sem[8]);
+        sem_wait(&Sem[8]);
         T('G');
-        sem_post(&Sem[1]);
+        sem_post(&Sem[4]);
     }
     return NULL;
 }
@@ -102,9 +101,9 @@ void *H(void *p)
 {
     while (1)
     {
-        sem_wait(&Sem[3]);
+        sem_wait(&Sem[7]);
         T('H');
-        sem_post(&Sem[1]);
+        sem_post(&Sem[4]);
     }
     return NULL;
 }
@@ -113,11 +112,11 @@ void *I(void *p)
 {
     while (1)
     {
-        sem_wait(&Sem[1]);
-        sem_wait(&Sem[1]);
-        sem_wait(&Sem[1]);
+        sem_wait(&Sem[4]);
+        sem_wait(&Sem[4]);
+        sem_wait(&Sem[4]);
         T('I');
-        sem_post(&Sem[5]);
+        sem_post(&Sem[0]);
     }
     return NULL;
 }
@@ -129,9 +128,9 @@ int main()
 
     srand(time(NULL));
 
-    for (i = 0; i < NSEM; i++)
+    sem_init(&Sem[0], 0, 1);
+    for (i = 1; i < NTHR; i++)
         sem_init(&Sem[i], 0, 0);
-    sem_init(&Sem[NSEM], 0, 1);
 
     pthread_create(&tid[0], NULL, A, NULL);
     pthread_create(&tid[1], NULL, B, NULL);
