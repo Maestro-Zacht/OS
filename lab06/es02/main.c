@@ -77,7 +77,7 @@ int main(int argc, char *argv[])
     if (argc == 4)
     {
         n = atoi(argv[1]);
-        par = (struct param *)malloc(n * sizeof(struct param *));
+        par = (struct param *)malloc(n * sizeof(struct param));
         tids = (pthread_t *)malloc(n * sizeof(pthread_t));
 
         for (i = 0; i < n; i++)
