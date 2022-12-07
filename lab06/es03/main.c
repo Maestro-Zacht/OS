@@ -81,7 +81,7 @@ int main(int argc, char *argv[])
     {
         n_files = atoi(argv[1]);
         len = atoi(argv[4]);
-        par = (struct param *)malloc(n_files * sizeof(struct param *));
+        par = (struct param *)malloc(n_files * sizeof(struct param));
         tids = (pthread_t *)malloc(n_files * sizeof(pthread_t));
         res = (int *)malloc(n_files * len * sizeof(int));
         vtmp = (int *)malloc(n_files * len * sizeof(int));
