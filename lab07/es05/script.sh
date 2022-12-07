@@ -16,8 +16,6 @@ for i in $(echo {1..6}); do
     sleep $2
 done
 
-echo $process
-
 if [ $? ]; then
     pid=$(echo $process | cut -f 2 -d " ")
     echo "Killing process $1 with PID $pid"
