@@ -44,7 +44,7 @@ void semaph_destroy(int S[2])
 
 void T(char c)
 {
-    // srand(time(NULL));
+    srand(time(NULL) + c);
     fprintf(stdout, "Executing %c on PID %d\n", c, getpid());
     sleep((rand() % MAXSLEEPTIME) + 1);
     fprintf(stdout, "%c done executing\n", c);
