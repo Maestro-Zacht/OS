@@ -38,6 +38,17 @@
             "request": "launch",
             "program": "${fileDirname}/${fileBasenameNoExtension}",
             "cwd": "."
+        },
+        {
+            "name": "Lab09 Es01",
+            "args": [
+                "in.txt",
+                "out.txt"
+            ],
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${fileDirname}/${fileBasenameNoExtension}",
+            "cwd": "${fileDirname}"
         }
     ]
 }
