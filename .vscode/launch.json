@@ -49,6 +49,16 @@
             "request": "launch",
             "program": "${fileDirname}/${fileBasenameNoExtension}",
             "cwd": "${fileDirname}"
-        }
+        },
+        {
+            "name": "Lab09 Es02",
+            "args": [
+                "input",
+            ],
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${fileDirname}/${fileBasenameNoExtension}",
+            "cwd": "${fileDirname}"
+        },
     ]
 }
