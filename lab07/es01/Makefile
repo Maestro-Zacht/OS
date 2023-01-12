@@ -1,4 +1,4 @@
-.PHONY: run1
+.PHONY: run1 run2
 
 run1:
 	./script1.sh ./examples echo output.txt
