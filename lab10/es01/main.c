@@ -18,7 +18,7 @@ void C_prol()
 {
     sem_wait(&s_nC);
     if (nC == 0)
-        sem_post(&s_c_finished);
+        sem_post(&s_aorb_finished);
     nC++;
     sem_post(&s_nC);
 }
@@ -43,7 +43,7 @@ void C_epil()
     sem_wait(&s_nC);
     nC--;
     if (nC == 0)
-        sem_post(&s_aorb_finished);
+        sem_post(&s_c_finished);
     sem_post(&s_nC);
 }
 
