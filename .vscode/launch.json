@@ -60,5 +60,13 @@
             "program": "${fileDirname}/${fileBasenameNoExtension}",
             "cwd": "${fileDirname}"
         },
+        {
+            "name": "Lab10 Es04",
+            "args": [],
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${fileDirname}/${fileBasenameNoExtension}",
+            "cwd": "${fileDirname}"
+        },
     ]
 }
