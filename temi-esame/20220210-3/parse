@@ -1,0 +1,36 @@
+#!/bin/bash
+
+if [ $# -ne 6 ]
+then
+    echo "Usage wrong!"
+    exit 1
+fi
+
+
+while read row
+do
+    i=0
+    while [ $i -lt $4 ]
+    do
+        echo -n "$5 "
+        let "i=i+1"
+    done
+
+    for word in $row
+    do
+        if [ "$word" = "$2" ]
+        then
+            echo -n "$3 "
+        else
+            echo -n "$word "
+        fi
+    done
+
+    i=0
+    while [ $i -lt $4 ]
+    do
+        echo -n "$5 "
+        let "i=i+1"
+    done
+    echo
+done < $1 > $6
